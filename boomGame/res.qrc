@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>dataset/character_stand_still/character_stand_still.gif</file>
+    </qresource>
+</RCC>

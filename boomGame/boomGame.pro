@@ -12,9 +12,11 @@ TARGET = boomGame
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp
+SOURCES += main.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  +=
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    res.qrc
