@@ -12,11 +12,27 @@ TARGET = boomGame
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    BoomMan.cpp \
+    Boom.cpp \
+    Enemy.cpp \
+    Game.cpp \
+    Map.cpp \
+    Tile.cpp \
+    Score.cpp \
+    Health.cpp
 
-HEADERS  +=
+HEADERS  += \
+    BoomMan.h \
+    Boom.h \
+    Enemy.h \
+    Game.h \
+    Map.h \
+    Tile.h \
+    Score.h \
+    Health.h
 
-FORMS    += mainwindow.ui
+FORMS    +=
 
 RESOURCES += \
     res.qrc

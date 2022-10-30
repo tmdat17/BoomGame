@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/images">
         <file>dataset/character_stand_still/character_stand_still.gif</file>
+        <file>dataset/boom/boom.gif</file>
+        <file>dataset/enemys/enemy1.gif</file>
+        <file>dataset/background/bg1.png</file>
+        <file>dataset/background/map640x640.jpg</file>
+        <file>dataset/bullets/bullet_no_bg.png</file>
     </qresource>
 </RCC>
