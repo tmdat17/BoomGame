@@ -1,5 +1,6 @@
-#include "Score.h"
 #include "QFont"
+
+#include "Score.h"
 Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
     // initialize the score to 0
     score = 0;

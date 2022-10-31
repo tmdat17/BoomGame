@@ -2,6 +2,8 @@
 #include <QGraphicsScene>
 #include <typeinfo>
 #include <QList>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 
 #include "Boom.h"
 #include "Enemy.h"
@@ -35,6 +37,10 @@ void Boom::collision_bomb(){
     QList <QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0; i < colliding_items.size(); ++i){
         if(typeid(*(colliding_items[i])) == typeid(Enemy)){
+            QMediaPlayer * music = new QMediaPlayer();
+            music->setMedia(QUrl("qrc:/sounds/music/mario_coin.mp3"));
+            music->play();
+
             // increase score when bomb and enemy collision
             game->score->increase();
 

@@ -8,10 +8,11 @@
 class BoomMan: public QObject ,public QGraphicsPixmapItem {
     Q_OBJECT
 public:
-//    BoomMan();
+    BoomMan();
     void keyPressEvent(QKeyEvent * events);
 public slots:
     void spawn();
+    void collision_boomman();
 };
 
 #endif // BOOMMAN_H

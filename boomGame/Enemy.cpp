@@ -1,12 +1,13 @@
-#include "BoomMan.h"
-#include "Enemy.h"
 #include <QTimer>
 #include <stdlib.h>
 #include <QGraphicsScene>
 #include <typeinfo>
 #include <QList>
 #include <QPixmap>
+#include <QTransform>
 
+#include "BoomMan.h"
+#include "Enemy.h"
 #include "Game.h"
 
 extern Game * game; // there is an external global object called game
@@ -17,13 +18,18 @@ Enemy::Enemy(){
     QPixmap pic(":/images/dataset/bullets/bullet_no_bg.png");
     setPixmap(QPixmap(pic.scaled(50,50,Qt::KeepAspectRatio)));
 
+
     // set random position
     int random_move = rand() % 8;
     qDebug("so random: %d", random_move);
     int random_numberX;
     int random_numberY;
+
+    QTransform t;
     // goc trai tren
     if(random_move==0){
+
+        t.rotateRadians(t.dx(), 90);
         random_numberX = rand() % (200 - 0 + 1) + 0;    //random (0,200)
         setPos(random_numberX,0);
     }
@@ -111,32 +117,6 @@ Enemy::Enemy(){
 
 // move goc trai tren xuong goc phai duoi
 void Enemy::move_from_top_left(){
-    // handle colliding
-    int health;
-    QList <QGraphicsItem *> colliding_items = collidingItems();
-    int i = 0;
-    for(int i = 0; i < colliding_items.size(); ++i){
-        if(typeid(*(colliding_items[i])) == typeid(BoomMan)){
-            // decrease health when player colliding with enemy
-            game->health->decrease();
-            health = game->health->getHealth();
-            // delete them both when health = 0
-            if(health == 0){
-                scene()->removeItem(colliding_items[i]);
-                scene()->removeItem(this);
-                //delete them both
-                delete colliding_items[i];
-                delete this;
-                return;
-            }else{
-                //remove an enemy
-                scene()->removeItem(colliding_items[i]);
-
-                //delete an enemy
-                delete colliding_items[i];
-            }
-        }
-    }
     setPos(x()+20, y() + 10);
     if(pos().x() > 950 || pos().y() > 500){
         scene()->removeItem(this);
@@ -147,31 +127,6 @@ void Enemy::move_from_top_left(){
 
 // move goc phai tren xuong goc phai duoi
 void Enemy::move_from_top_right(){
-    // handle colliding
-    int health;
-    QList <QGraphicsItem *> colliding_items = collidingItems();
-    for(int i = 0; i < colliding_items.size(); ++i){
-        if(typeid(*(colliding_items[i])) == typeid(BoomMan)){
-            // decrease health when player colliding with enemy
-            game->health->decrease();
-            health = game->health->getHealth();
-            // delete them both when health = 0
-            if(health == 0){
-                scene()->removeItem(colliding_items[i]);
-                scene()->removeItem(this);
-                //delete them both
-                delete colliding_items[i];
-                delete this;
-                return;
-            }else{
-                //remove an enemy
-                scene()->removeItem(colliding_items[i]);
-
-                //delete an enemy
-                delete colliding_items[i];
-            }
-        }
-    }
     setPos(x()-20, y() + 10);
     if(pos().x()+30 < 0 || pos().y() > 500){
         scene()->removeItem(this);
@@ -182,31 +137,6 @@ void Enemy::move_from_top_right(){
 
 // move goc trai duoi len goc phai tren
 void Enemy::move_from_bottom_left(){
-    // handle colliding
-    int health;
-    QList <QGraphicsItem *> colliding_items = collidingItems();
-    for(int i = 0; i < colliding_items.size(); ++i){
-        if(typeid(*(colliding_items[i])) == typeid(BoomMan)){
-            // decrease health when player colliding with enemy
-            game->health->decrease();
-            health = game->health->getHealth();
-            // delete them both when health = 0
-            if(health == 0){
-                scene()->removeItem(colliding_items[i]);
-                scene()->removeItem(this);
-                //delete them both
-                delete colliding_items[i];
-                delete this;
-                return;
-            }else{
-                //remove an enemy
-                scene()->removeItem(colliding_items[i]);
-
-                //delete an enemy
-                delete colliding_items[i];
-            }
-        }
-    }
     setPos(x()+20, y() - 10);
     if(pos().x() > 950 || pos().y()+30 < 0){
         scene()->removeItem(this);
@@ -217,31 +147,6 @@ void Enemy::move_from_bottom_left(){
 
 // move goc phai duoi len goc trai tren
 void Enemy::move_from_bottom_right(){
-    // handle colliding
-    int health;
-    QList <QGraphicsItem *> colliding_items = collidingItems();
-    for(int i = 0; i < colliding_items.size(); ++i){
-        if(typeid(*(colliding_items[i])) == typeid(BoomMan)){
-            // decrease health when player colliding with enemy
-            game->health->decrease();
-            health = game->health->getHealth();
-            // delete them both when health = 0
-            if(health == 0){
-                scene()->removeItem(colliding_items[i]);
-                scene()->removeItem(this);
-                //delete them both
-                delete colliding_items[i];
-                delete this;
-                return;
-            }else{
-                //remove an enemy
-                scene()->removeItem(colliding_items[i]);
-
-                //delete an enemy
-                delete colliding_items[i];
-            }
-        }
-    }
     setPos(x()-20, y() - 10);
     if(pos().x()+30 < 0 || pos().y()+30 < 0){
         scene()->removeItem(this);
@@ -251,31 +156,6 @@ void Enemy::move_from_bottom_right(){
 }
 
 void Enemy::move_from_left(){
-    // handle colliding
-    int health;
-    QList <QGraphicsItem *> colliding_items = collidingItems();
-    for(int i = 0; i < colliding_items.size(); ++i){
-        if(typeid(*(colliding_items[i])) == typeid(BoomMan)){
-            // decrease health when player colliding with enemy
-            game->health->decrease();
-            health = game->health->getHealth();
-            // delete them both when health = 0
-            if(health == 0){
-                scene()->removeItem(colliding_items[i]);
-                scene()->removeItem(this);
-                //delete them both
-                delete colliding_items[i];
-                delete this;
-                return;
-            }else{
-                //remove an enemy
-                scene()->removeItem(colliding_items[i]);
-
-                //delete an enemy
-                delete colliding_items[i];
-            }
-        }
-    }
     setPos(x()+20, y());
     if(pos().x() > 950){
         scene()->removeItem(this);
@@ -285,31 +165,6 @@ void Enemy::move_from_left(){
 }
 
 void Enemy::move_from_right(){
-    // handle colliding
-    int health;
-    QList <QGraphicsItem *> colliding_items = collidingItems();
-    for(int i = 0; i < colliding_items.size(); ++i){
-        if(typeid(*(colliding_items[i])) == typeid(BoomMan)){
-            // decrease health when player colliding with enemy
-            game->health->decrease();
-            health = game->health->getHealth();
-            // delete them both when health = 0
-            if(health == 0){
-                scene()->removeItem(colliding_items[i]);
-                scene()->removeItem(this);
-                //delete them both
-                delete colliding_items[i];
-                delete this;
-                return;
-            }else{
-                //remove an enemy
-                scene()->removeItem(colliding_items[i]);
-
-                //delete an enemy
-                delete colliding_items[i];
-            }
-        }
-    }
     setPos(x()-20, y());
     if(pos().x() + 30 < 0){
         scene()->removeItem(this);
@@ -319,31 +174,6 @@ void Enemy::move_from_right(){
 }
 
 void Enemy::move_from_top(){
-    // handle colliding
-    int health;
-    QList <QGraphicsItem *> colliding_items = collidingItems();
-    for(int i = 0; i < colliding_items.size(); ++i){
-        if(typeid(*(colliding_items[i])) == typeid(BoomMan)){
-            // decrease health when player colliding with enemy
-            game->health->decrease();
-            health = game->health->getHealth();
-            // delete them both when health = 0
-            if(health == 0){
-                scene()->removeItem(colliding_items[i]);
-                scene()->removeItem(this);
-                //delete them both
-                delete colliding_items[i];
-                delete this;
-                return;
-            }else{
-                //remove an enemy
-                scene()->removeItem(colliding_items[i]);
-
-                //delete an enemy
-                delete colliding_items[i];
-            }
-        }
-    }
     setPos(x(), y()+20);
     if(pos().y() > 500){
         scene()->removeItem(this);
@@ -353,31 +183,6 @@ void Enemy::move_from_top(){
 }
 
 void Enemy::move_from_bottom(){
-    // handle colliding
-    int health;
-    QList <QGraphicsItem *> colliding_items = collidingItems();
-    for(int i = 0; i < colliding_items.size(); ++i){
-        if(typeid(*(colliding_items[i])) == typeid(BoomMan)){
-            // decrease health when player colliding with enemy
-            game->health->decrease();
-            health = game->health->getHealth();
-            // delete them both when health = 0
-            if(health == 0){
-                scene()->removeItem(colliding_items[i]);
-                scene()->removeItem(this);
-                //delete them both
-                delete colliding_items[i];
-                delete this;
-                return;
-            }else{
-                //remove an enemy
-                scene()->removeItem(colliding_items[i]);
-
-                //delete an enemy
-                delete colliding_items[i];
-            }
-        }
-    }
     setPos(x(), y()-20);
     if(pos().y() + 30 < 0){
         scene()->removeItem(this);

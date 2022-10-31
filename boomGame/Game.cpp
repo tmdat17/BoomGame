@@ -3,6 +3,10 @@
 #include <QBrush>
 #include <QImage>
 #include <QPainter>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+
+
 Game::Game(QWidget *parent){
     // create a scene
     scene = new QGraphicsScene();
@@ -18,7 +22,7 @@ Game::Game(QWidget *parent){
     player->setPixmap(QPixmap(":/images/dataset/character_stand_still/character_stand_still.gif"));
     player->setPos(scene->width()/2,scene->height()/2);
 
-    // make player focusable
+//    // make player focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 
@@ -40,6 +44,18 @@ Game::Game(QWidget *parent){
        QObject::connect(timer, SIGNAL(timeout()),player,SLOT(spawn()));
        timer->start(1000);
    }
+
+
+   // play background music
+
+      QMediaPlaylist *playlist = new QMediaPlaylist();
+      playlist->addMedia(QUrl("qrc:/sounds/music/musicBg.mp3"));
+      playlist->setPlaybackMode(QMediaPlaylist::Loop);
+
+      QMediaPlayer *music = new QMediaPlayer();
+      music->setPlaylist(playlist);
+      music->play();
+
 
    // add a view
     QGraphicsView * view = new QGraphicsView(scene);

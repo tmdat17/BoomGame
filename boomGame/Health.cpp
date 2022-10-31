@@ -1,9 +1,9 @@
-#include "Health.h"
 #include "QFont"
 
+#include "Health.h"
 Health::Health(QGraphicsItem *parent): QGraphicsTextItem(parent){
     // initialize the score to 0
-    health = 3;
+    health = 10;
 
     // draw the text
     setPlainText(QString("Remaining Health: ") + QString::number(health)); // Score: 0

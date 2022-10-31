@@ -7,4 +7,10 @@
         <file>dataset/background/map640x640.jpg</file>
         <file>dataset/bullets/bullet_no_bg.png</file>
     </qresource>
+    <qresource prefix="/sounds">
+        <file>music/explosion.mp3</file>
+        <file>music/musicBg.mp3</file>
+        <file>music/musicBg.wav</file>
+        <file>music/mario_coin.mp3</file>
+    </qresource>
 </RCC>
