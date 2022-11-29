@@ -34,9 +34,13 @@ void Boom::bomb_Explode(){
 }
 
 void Boom::collision_bomb(){
-    QList <QGraphicsItem *> colliding_items = collidingItems();
-    for(int i = 0; i < colliding_items.size(); ++i){
-        if(typeid(*(colliding_items[i])) == typeid(Enemy)){
+    QList<QGraphicsItem *> list = collidingItems() ;
+
+    foreach(QGraphicsItem * i , list)
+    {
+        Enemy * item= dynamic_cast<Enemy *>(i);
+        if (item)
+        {
             QMediaPlayer * music = new QMediaPlayer();
             music->setMedia(QUrl("qrc:/sounds/music/mario_coin.mp3"));
             music->play();
@@ -45,11 +49,11 @@ void Boom::collision_bomb(){
             game->score->increase();
 
             // remove them both
-            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(item);
             scene()->removeItem(this);
             // delete them both
             qDebug("Bomb Collision!!");
-            delete colliding_items[i];
+            delete item;
             delete this;
 
         }

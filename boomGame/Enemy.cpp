@@ -14,7 +14,7 @@ extern Game * game; // there is an external global object called game
 
 Enemy::Enemy(){
     // draw the enemy
-//     setPixmap(QPixmap(":/images/dataset/enemys/enemy1.gif"));
+     //setPixmap(QPixmap(":/images/dataset/enemys/enemy1.gif"));
     QPixmap pic(":/images/dataset/bullets/bullet_no_bg.png");
     setPixmap(QPixmap(pic.scaled(50,50,Qt::KeepAspectRatio)));
 
@@ -25,28 +25,35 @@ Enemy::Enemy(){
     int random_numberX;
     int random_numberY;
 
-    QTransform t;
+
     // goc trai tren
     if(random_move==0){
-
-        t.rotateRadians(t.dx(), 90);
+        QPixmap p2 = pic.transformed(QTransform().rotate(215));
+        setPixmap(QPixmap(p2.scaled(68,68,Qt::KeepAspectRatio)));
         random_numberX = rand() % (200 - 0 + 1) + 0;    //random (0,200)
+
         setPos(random_numberX,0);
     }
     // goc phai tren
     else if (random_move == 1){
+        QPixmap p2 = pic.transformed(QTransform().rotate(-35));
+        setPixmap(QPixmap(p2.scaled(68,68,Qt::KeepAspectRatio)));
         random_numberX = rand() % (950 - 750 + 1) + 750;    //random (950,750)
         setPos(random_numberX, 0);
     }
 
     // goc duoi trai
     else if (random_move == 2){
+        QPixmap p2 = pic.transformed(QTransform().rotate(145));
+        setPixmap(QPixmap(p2.scaled(68,68,Qt::KeepAspectRatio)));
         random_numberY = rand() % (550 - 450 + 1) + 450;    //random (450,550)
         setPos(0, random_numberY);
     }
 
     // goc duoi phai
     else if (random_move == 3){
+        QPixmap p2 = pic.transformed(QTransform().rotate(45));
+        setPixmap(QPixmap(p2.scaled(68,68,Qt::KeepAspectRatio)));
         random_numberX = rand() % (950 - 850 + 1) + 850;    //random (850,950)
         random_numberY = rand() % (550 - 450 + 1) + 450;    //random (450,550)
 
@@ -55,23 +62,30 @@ Enemy::Enemy(){
 
     // ben trai
     else if (random_move == 4){
+        QPixmap p2 = pic.transformed(QTransform().rotate(180));
+        setPixmap(QPixmap(p2.scaled(50,50,Qt::KeepAspectRatio)));
         random_numberY = rand() % (350 - 150 + 1) + 150;    //random (150,350)
         setPos(0, random_numberY);
     }
     // ben phai
     else if (random_move == 5){
+        // hinh goc enemy huong ben phai nen truong hop nay khong xet
         random_numberY = rand() % (350 - 150 + 1) + 150;    //random (150,350)
         setPos(950, random_numberY);
     }
 
     // ben tren
     else if (random_move == 6){
+        QPixmap p2 = pic.transformed(QTransform().rotate(-90));
+        setPixmap(QPixmap(p2.scaled(50,50,Qt::KeepAspectRatio)));
         random_numberX = rand() % (800 - 500 + 1) + 500;    //random (500,800)
         setPos(random_numberX, 0);
     }
 
     // ben duoi
     else if (random_move == 7){
+        QPixmap p2 = pic.transformed(QTransform().rotate(90));
+        setPixmap(QPixmap(p2.scaled(50,50,Qt::KeepAspectRatio)));
         random_numberX = rand() % (800 - 500 + 1) + 500;    //random (500,800)
         setPos(random_numberX, 550);
     }
@@ -110,9 +124,6 @@ Enemy::Enemy(){
          connect(timer,SIGNAL(timeout()),this,SLOT(move_from_bottom()));
          timer->start(40);
      }
-
-
-
 }
 
 // move goc trai tren xuong goc phai duoi

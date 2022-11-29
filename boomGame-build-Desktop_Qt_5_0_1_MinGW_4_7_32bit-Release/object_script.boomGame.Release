@@ -8,8 +8,10 @@ INPUT(
 ./release\Tile.o
 ./release\Score.o
 ./release\Health.o
+./release\Heart.o
 ./release\qrc_res.o
 ./release\moc_BoomMan.o
 ./release\moc_Boom.o
 ./release\moc_Enemy.o
+./release\moc_Heart.o
 );

@@ -11,7 +11,7 @@ Game::Game(QWidget *parent){
     // create a scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1000,570); // set width height for scene
-//    scene->setBackgroundBrush((QBrush(QImage(":/images/dataset/background/map640x640.jpg"))));
+//    scene->setBackgroundBrush((QBrush(QImage(":/images/dataset/background/map_midlane1046x1046.jpg"))));
     scene->setBackgroundBrush((QBrush(QImage(":/images/dataset/background/bg1.png"))));
 
     // create a map
@@ -37,6 +37,9 @@ Game::Game(QWidget *parent){
     health->setPos(x(),y()+30);
     scene->addItem(health);
 
+    heart = new Heart();
+    scene->addItem(heart);
+
     // spwan enemies
    QTimer * timer = new QTimer();
    int numEnemy = 0;
@@ -45,6 +48,15 @@ Game::Game(QWidget *parent){
        timer->start(1000);
    }
 
+   int random_time_heart = rand() % (15000 - 8000 + 1) + 8000;
+   qDebug("time heart: %d  ", random_time_heart);
+   // spawn hearts
+   QTimer * timerHeart = new QTimer();
+   int numHeart = 1;
+   for(int i=0; i <= numHeart; i++){
+       QObject::connect(timerHeart, SIGNAL(timeout()),player,SLOT(spawnHeart()));
+       timerHeart->start(random_time_heart);
+   }
 
    // play background music
 
@@ -60,6 +72,5 @@ Game::Game(QWidget *parent){
    // add a view
     QGraphicsView * view = new QGraphicsView(scene);
     view->show();
-
 
 }

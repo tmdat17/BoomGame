@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     Map.cpp \
     Tile.cpp \
     Score.cpp \
-    Health.cpp
+    Health.cpp \
+    Heart.cpp
 
 HEADERS  += \
     BoomMan.h \
@@ -30,7 +31,8 @@ HEADERS  += \
     Map.h \
     Tile.h \
     Score.h \
-    Health.h
+    Health.h \
+    Heart.h
 
 FORMS    +=
 

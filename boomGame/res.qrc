@@ -6,11 +6,17 @@
         <file>dataset/background/bg1.png</file>
         <file>dataset/background/map640x640.jpg</file>
         <file>dataset/bullets/bullet_no_bg.png</file>
+        <file>dataset/character_stand_still/test.png</file>
+        <file>dataset/enemys/khoabu.png</file>
+        <file>dataset/hearts/heart.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>music/explosion.mp3</file>
         <file>music/musicBg.mp3</file>
         <file>music/musicBg.wav</file>
         <file>music/mario_coin.mp3</file>
+        <file>music/challenge_lose.mp3</file>
+        <file>music/you_lose.mp3</file>
+        <file>music/pick_heart.mp3</file>
     </qresource>
 </RCC>

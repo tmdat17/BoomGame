@@ -8,8 +8,10 @@ INPUT(
 ./debug\Tile.o
 ./debug\Score.o
 ./debug\Health.o
+./debug\Heart.o
 ./debug\qrc_res.o
 ./debug\moc_BoomMan.o
 ./debug\moc_Boom.o
 ./debug\moc_Enemy.o
+./debug\moc_Heart.o
 );

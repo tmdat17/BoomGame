@@ -1,7 +1,6 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QDebug>
-#include <QLabel>
 #include <QMovie>
 #include <QBitmap>
 #include <QPixmap>
@@ -10,22 +9,11 @@
 #include <QTimer>
 #include <QMediaPlayer>
 
+#include "Heart.h"
 #include "Boom.h"
 #include "Enemy.h"
 #include "BoomMan.h"
 #include "Game.h"
-
-//BoomMan::BoomMan(){
-//    QLabel * label = new QLabel();
-//    label->setWindowFlags(Qt::FramelessWindowHint);
-//    label->setMask((new QPixmap(":/images/dataset/character_stand_still/character_stand_still.gif"))->mask());
-//    QMovie *movie = new QMovie(":/images/dataset/character_stand_still/character_stand_still.gif");
-//    label->setMovie(movie);
-//    movie->start();
-
-//    label->show();
-
-//}
 
 extern Game * game; // there is an external global object called game
 
@@ -33,6 +21,9 @@ BoomMan::BoomMan(){
 
     QTimer * timeCollision = new QTimer();
     connect(timeCollision,SIGNAL(timeout()),this,SLOT(collision_boomman()));
+    timeCollision->start(10);
+
+    connect(timeCollision,SIGNAL(timeout()),this,SLOT(pick_a_heart()));
     timeCollision->start(10);
 
 }
@@ -69,10 +60,14 @@ void BoomMan::spawn(){
     scene()->addItem(enemy);
 }
 
+void BoomMan::spawnHeart(){
+     // create the heart
+    Heart * heart = new Heart();
+    scene()->addItem(heart);
+}
+
 void BoomMan::collision_boomman(){
     // handle colliding
-
-   // QMediaPlayer * music = new QMediaPlayer();
     QList<QGraphicsItem *> list = collidingItems() ;
 
     foreach(QGraphicsItem * i , list)
@@ -80,17 +75,24 @@ void BoomMan::collision_boomman(){
         Enemy * item= dynamic_cast<Enemy *>(i);
         if (item)
         {
-           QMediaPlayer * music = new QMediaPlayer();
-           game->health->decrease();
-           music->setMedia(QUrl("qrc:/sounds/music/explosion.mp3"));
-           music->play();
-           if (game->health->getHealth() == 0){
+
+           if (game->health->getHealth() == 1){
+
+               QMediaPlayer * music = new QMediaPlayer();
+               game->health->decrease();
+               music->setMedia(QUrl("qrc:/sounds/music/challenge_lose.mp3"));
+               music->play();
                // remove them both
                scene()->removeItem(item);
                delete item;
                scene()->removeItem(this);
                delete this;
+
            }else {
+               QMediaPlayer * music = new QMediaPlayer();
+               game->health->decrease();
+               music->setMedia(QUrl("qrc:/sounds/music/explosion.mp3"));
+               music->play();
                scene()->removeItem(item);
                delete item;
            }
@@ -99,3 +101,20 @@ void BoomMan::collision_boomman(){
     }
 
 }
+
+void BoomMan::pick_a_heart(){
+    QList<QGraphicsItem *> list = collidingItems() ;
+    foreach(QGraphicsItem * i , list){
+        Heart * item= dynamic_cast<Heart *>(i);
+        if (item)
+        {
+            QMediaPlayer * music = new QMediaPlayer();
+            game->health->increase();
+            music->setMedia(QUrl("qrc:/sounds/music/pick_heart.mp3"));
+            music->play();
+            scene()->removeItem(item);
+            delete item;
+        }
+    }
+}
+

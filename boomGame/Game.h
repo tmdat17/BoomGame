@@ -10,6 +10,7 @@
 #include <BoomMan.h>
 #include <Score.h>
 #include <Health.h>
+#include <Heart.h>
 
 class Game: public QGraphicsView{
 public:
@@ -19,6 +20,7 @@ public:
     Map * map;
     Score * score;
     Health * health;
+    Heart * heart;
 };
 
 #endif // GAME_H

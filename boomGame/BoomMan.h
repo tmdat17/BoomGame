@@ -12,7 +12,9 @@ public:
     void keyPressEvent(QKeyEvent * events);
 public slots:
     void spawn();
+    void spawnHeart();
     void collision_boomman();
+    void pick_a_heart();
 };
 
 #endif // BOOMMAN_H
