@@ -6,9 +6,42 @@
         <file>dataset/background/bg1.png</file>
         <file>dataset/background/map640x640.jpg</file>
         <file>dataset/bullets/bullet_no_bg.png</file>
-        <file>dataset/character_stand_still/test.png</file>
-        <file>dataset/enemys/khoabu.png</file>
         <file>dataset/hearts/heart.png</file>
+        <file>dataset/boom/bom1.png</file>
+        <file>dataset/boom/bom2.png</file>
+        <file>dataset/boom/bom3.png</file>
+        <file>dataset/boom/bom4.png</file>
+        <file>dataset/character_stand_still/boman1.png</file>
+        <file>dataset/character_stand_still/boman2.png</file>
+        <file>dataset/character_stand_still/boman3.png</file>
+        <file>dataset/character_stand_still/boman4.png</file>
+        <file>dataset/character_stand_still/boman5.png</file>
+        <file>dataset/character_stand_still/boman6.png</file>
+        <file>dataset/character_stand_still/boman7.png</file>
+        <file>dataset/character_stand_still/boman8.png</file>
+        <file>dataset/bigbang/explo1.png</file>
+        <file>dataset/bigbang/explo2.png</file>
+        <file>dataset/bigbang/explo3.png</file>
+        <file>dataset/bigbang/explo4.png</file>
+        <file>dataset/bigbang/explo5.png</file>
+        <file>dataset/bigbang/explo6.png</file>
+        <file>dataset/bigbang/explo7.png</file>
+        <file>dataset/character_die/playerDie1.png</file>
+        <file>dataset/character_die/playerDie2.png</file>
+        <file>dataset/character_die/playerDie3.png</file>
+        <file>dataset/character_die/playerDie4.png</file>
+        <file>dataset/character_die/playerDie5.png</file>
+        <file>dataset/character_die/playerDie6.png</file>
+        <file>dataset/playerVsEnemy/playerEx1.png</file>
+        <file>dataset/playerVsEnemy/playerEx2.png</file>
+        <file>dataset/playerVsEnemy/playerEx3.png</file>
+        <file>dataset/playerVsEnemy/playerEx4.png</file>
+        <file>dataset/playerVsEnemy/playerEx5.png</file>
+        <file>dataset/playerVsEnemy/playerEx6.png</file>
+        <file>dataset/playerVsEnemy/playerEx7.png</file>
+        <file>dataset/playerVsEnemy/playerEx8.png</file>
+        <file>dataset/playerVsEnemy/playerEx9.png</file>
+        <file>dataset/playerVsEnemy/playerEx10.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>music/explosion.mp3</file>

@@ -11,6 +11,7 @@
 #include "Enemy.h"
 #include "Game.h"
 
+extern Game * game; // there is an external global object called game
 Heart::Heart(){
     QPixmap pic(":/images/dataset/hearts/heart.png");
     setPixmap(QPixmap(pic.scaled(50,50,Qt::KeepAspectRatio)));
@@ -71,38 +72,48 @@ Heart::Heart(){
         setPos(random_numberX, 550);
     }
     // connect
+    qDebug("heart:  %d",random_move);
     QTimer * timer = new QTimer();
     if(random_move == 0){
         connect(timer,SIGNAL(timeout()),this,SLOT(move_from_top_left()));
-        timer->start(40);
+        timer->start(30);
+
     }
     else if(random_move == 1){
+
         connect(timer,SIGNAL(timeout()),this,SLOT(move_from_top_right()));
-        timer->start(40);
+        timer->start(30);
+
     }
-    else if(random_move == 2){
+    else if(random_move == 2){  
         connect(timer,SIGNAL(timeout()),this,SLOT(move_from_bottom_left()));
-        timer->start(40);
+        timer->start(30);
+
     }
     else if(random_move == 3){
         connect(timer,SIGNAL(timeout()),this,SLOT(move_from_bottom_right()));
-        timer->start(40);
+        timer->start(30);
+
     }
     else if(random_move == 4){
         connect(timer,SIGNAL(timeout()),this,SLOT(move_from_left()));
-        timer->start(40);
+        timer->start(30);
+
     }
     else if(random_move == 5){
         connect(timer,SIGNAL(timeout()),this,SLOT(move_from_right()));
-        timer->start(40);
+        timer->start(30);
+
     }
     else if(random_move == 6){
         connect(timer,SIGNAL(timeout()),this,SLOT(move_from_top()));
-        timer->start(40);
+        timer->start(30);
+
     }
     else if(random_move == 7){
         connect(timer,SIGNAL(timeout()),this,SLOT(move_from_bottom()));
-        timer->start(40);
+        timer->start(30);
+
     }
 }
 

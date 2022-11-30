@@ -6,7 +6,6 @@
 #include <QGraphicsScene>
 #include <QTimer>
 
-#include <Map.h>
 #include <BoomMan.h>
 #include <Score.h>
 #include <Health.h>
@@ -17,7 +16,7 @@ public:
     Game(QWidget * parent = 0);
     QGraphicsScene * scene;
     BoomMan * player;
-    Map * map;
+
     Score * score;
     Health * health;
     Heart * heart;

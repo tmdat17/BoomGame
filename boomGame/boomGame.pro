@@ -17,22 +17,24 @@ SOURCES += main.cpp \
     Boom.cpp \
     Enemy.cpp \
     Game.cpp \
-    Map.cpp \
-    Tile.cpp \
     Score.cpp \
     Health.cpp \
-    Heart.cpp
+    Heart.cpp \
+    Explosion.cpp \
+    BoomManDie.cpp \
+    PlayerVsEnemy.cpp
 
 HEADERS  += \
     BoomMan.h \
     Boom.h \
     Enemy.h \
     Game.h \
-    Map.h \
-    Tile.h \
     Score.h \
     Health.h \
-    Heart.h
+    Heart.h \
+    Explosion.h \
+    BoomManDie.h \
+    PlayerVsEnemy.h
 
 FORMS    +=
 

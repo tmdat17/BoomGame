@@ -19,7 +19,7 @@ Game::Game(QWidget *parent){
 
     // create player
     player = new BoomMan();
-    player->setPixmap(QPixmap(":/images/dataset/character_stand_still/character_stand_still.gif"));
+//    player->setPixmap(QPixmap(":/images/dataset/character_stand_still/character_stand_still.gif"));
     player->setPos(scene->width()/2,scene->height()/2);
 
 //    // make player focusable
@@ -46,13 +46,13 @@ Game::Game(QWidget *parent){
    for(int i=0; i <= numEnemy; i++){
        QObject::connect(timer, SIGNAL(timeout()),player,SLOT(spawn()));
        timer->start(1000);
+
    }
 
    int random_time_heart = rand() % (15000 - 8000 + 1) + 8000;
-   qDebug("time heart: %d  ", random_time_heart);
    // spawn hearts
    QTimer * timerHeart = new QTimer();
-   int numHeart = 1;
+   int numHeart = 0;
    for(int i=0; i <= numHeart; i++){
        QObject::connect(timerHeart, SIGNAL(timeout()),player,SLOT(spawnHeart()));
        timerHeart->start(random_time_heart);
