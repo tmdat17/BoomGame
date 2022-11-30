@@ -31,8 +31,14 @@ Boom::Boom(){
 }
 
 void Boom::bomb_Explode(){
+    Explosion *explo = new Explosion();
+    explo->setPos(x(), y());
+    scene()->addItem(explo);
+
     scene()->removeItem(this);
     delete this;
+
+
     qDebug("Bomb Timeout!!");
 }
 
@@ -57,11 +63,13 @@ void Boom::collision_bomb(){
 
             // remove them both
             scene()->removeItem(item);
+            delete item;
             scene()->removeItem(this);
+            delete this;
             // delete them both
             qDebug("Bomb Collision!!");
-            delete item;
-            delete this;
+
+
 
         }
     }

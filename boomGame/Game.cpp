@@ -40,14 +40,12 @@ Game::Game(QWidget *parent){
     heart = new Heart();
     scene->addItem(heart);
 
+
     // spwan enemies
    QTimer * timer = new QTimer();
-   int numEnemy = 0;
-   for(int i=0; i <= numEnemy; i++){
-       QObject::connect(timer, SIGNAL(timeout()),player,SLOT(spawn()));
-       timer->start(1000);
 
-   }
+   QObject::connect(timer, SIGNAL(timeout()),player,SLOT(spawn()));
+   timer->start(1000);
 
    int random_time_heart = rand() % (15000 - 8000 + 1) + 8000;
    // spawn hearts

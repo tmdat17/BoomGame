@@ -24,37 +24,37 @@ void Explosion::drawExplosion()
 
     switch(hinh){
         case 1:{
-            setPixmap(hinh1.scaled(50,50));
+            setPixmap(hinh1.scaled(70,70));
             hinh = 2;
             break;
         }
         case 2:{
-            setPixmap(hinh2.scaled(50,50));
+            setPixmap(hinh2.scaled(70,70));
             hinh = 3;
             break;
         }
         case 3:{
-            setPixmap(hinh3.scaled(50,50));
+            setPixmap(hinh3.scaled(70,70));
             hinh = 4;
             break;
         }
         case 4:{
-            setPixmap(hinh4.scaled(50,50));
+            setPixmap(hinh4.scaled(70,70));
             hinh = 5;
             break;
         }
         case 5:{
-            setPixmap(hinh5.scaled(50,50));
+            setPixmap(hinh5.scaled(70,70));
             hinh = 6;
             break;
         }
         case 6:{
-            setPixmap(hinh6.scaled(50,50));
+            setPixmap(hinh6.scaled(70,70));
             hinh = 7;
             break;
         }
         case 7:{
-            setPixmap(hinh7.scaled(50,50));
+            setPixmap(hinh7.scaled(70,70));
             hinh = 0;
             break;
         }

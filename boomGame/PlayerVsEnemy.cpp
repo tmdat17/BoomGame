@@ -27,52 +27,52 @@ void PlayerVsEnemy::drawPlayerVsEnemy()
 
     switch(hinh){
         case 1:{
-            setPixmap(hinh1.scaled(60,60));
+            setPixmap(hinh1.scaled(80,80));
             hinh = 2;
             break;
         }
         case 2:{
-            setPixmap(hinh2.scaled(60,60));
+            setPixmap(hinh2.scaled(80,80));
             hinh = 3;
             break;
         }
         case 3:{
-            setPixmap(hinh3.scaled(60,60));
+            setPixmap(hinh3.scaled(80,80));
             hinh = 4;
             break;
         }
         case 4:{
-            setPixmap(hinh4.scaled(60,60));
+            setPixmap(hinh4.scaled(80,80));
             hinh = 5;
             break;
         }
         case 5:{
-            setPixmap(hinh5.scaled(60,60));
+            setPixmap(hinh5.scaled(80,80));
             hinh = 6;
             break;
         }
         case 6:{
-            setPixmap(hinh6.scaled(60,60));
+            setPixmap(hinh6.scaled(80,80));
             hinh = 7;
             break;
         }
         case 7:{
-            setPixmap(hinh7.scaled(60,60));
+            setPixmap(hinh7.scaled(80,80));
             hinh = 8;
             break;
         }
         case 8:{
-            setPixmap(hinh8.scaled(60,60));
+            setPixmap(hinh8.scaled(80,80));
             hinh = 9;
             break;
         }
         case 9:{
-            setPixmap(hinh9.scaled(60,60));
+            setPixmap(hinh9.scaled(80,80));
             hinh = 10;
             break;
         }
         case 10:{
-            setPixmap(hinh10.scaled(60,60));
+            setPixmap(hinh10.scaled(80,80));
             hinh = 0;
             break;
         }

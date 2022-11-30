@@ -14,7 +14,6 @@ extern Game * game; // there is an external global object called game
 
 Enemy::Enemy(){
     // draw the enemy
-     //setPixmap(QPixmap(":/images/dataset/enemys/enemy1.gif"));
     QPixmap pic(":/images/dataset/bullets/bullet_no_bg.png");
     setPixmap(QPixmap(pic.scaled(50,50,Qt::KeepAspectRatio)));
 

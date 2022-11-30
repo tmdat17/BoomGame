@@ -9,7 +9,7 @@ BoomManDie::BoomManDie()
     hinh=1;
     QTimer * timeDraw = new QTimer();
     connect(timeDraw,SIGNAL(timeout()),this,SLOT(drawPlayerDie()));
-    timeDraw->start(50);
+    timeDraw->start(150);
 }
 
 void BoomManDie::drawPlayerDie()
@@ -23,32 +23,32 @@ void BoomManDie::drawPlayerDie()
 
     switch(hinh){
         case 1:{
-            setPixmap(hinh1.scaled(60,60));
+            setPixmap(hinh1.scaled(70,70));
             hinh = 2;
             break;
         }
         case 2:{
-            setPixmap(hinh2.scaled(60,60));
+            setPixmap(hinh2.scaled(70,70));
             hinh = 3;
             break;
         }
         case 3:{
-            setPixmap(hinh3.scaled(60,60));
+            setPixmap(hinh3.scaled(70,70));
             hinh = 4;
             break;
         }
         case 4:{
-            setPixmap(hinh4.scaled(60,60));
+            setPixmap(hinh4.scaled(70,70));
             hinh = 5;
             break;
         }
         case 5:{
-            setPixmap(hinh5.scaled(60,60));
+            setPixmap(hinh5.scaled(70,70));
             hinh = 6;
             break;
         }
         case 6:{
-            setPixmap(hinh6.scaled(60,60));
+            setPixmap(hinh6.scaled(70,70));
             hinh = 0;
             break;
         }

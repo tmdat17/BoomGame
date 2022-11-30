@@ -38,21 +38,45 @@ BoomMan::BoomMan(){
 }
 
 void BoomMan::keyPressEvent(QKeyEvent *event){
+
     if (event->key() == Qt::Key_Left){
         if(pos().x() > 35)
             setPos(x()-35,y());
+    }
+    // flash trai
+    else if (event->key() == Qt::Key_A){
+        if(pos().x() > 75)
+            setPos(x()-70,y());
     }
     else if (event->key() == Qt::Key_Right){
         if(pos().x() < 915)
             setPos(x()+35,y());
     }
+
+    // flash phai
+    else if (event->key() == Qt::Key_D){
+        if(pos().x() < 885)
+            setPos(x()+70,y());
+    }
+
     else if (event->key() == Qt::Key_Up){
         if(pos().y() > 35)
             setPos(x(),y()-35);
     }
+    // flash len
+    else if (event->key() == Qt::Key_W){
+        if(pos().y() > 70)
+            setPos(x(),y()-70);
+    }
+
     else if (event->key() == Qt::Key_Down){
         if(pos().y() < 465)
             setPos(x(),y()+35);
+    }
+    // flash xuong
+    else if (event->key() == Qt::Key_S){
+        if(pos().y() < 395)
+            setPos(x(),y()+70);
     }
     else if (event->key() == Qt::Key_Space){
         // create a boom
