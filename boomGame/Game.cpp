@@ -11,15 +11,10 @@ Game::Game(QWidget *parent){
     // create a scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1000,570); // set width height for scene
-//    scene->setBackgroundBrush((QBrush(QImage(":/images/dataset/background/map_midlane1046x1046.jpg"))));
     scene->setBackgroundBrush((QBrush(QImage(":/images/dataset/background/bg1.png"))));
-
-    // create a map
-//    map = new Map();
 
     // create player
     player = new BoomMan();
-//    player->setPixmap(QPixmap(":/images/dataset/character_stand_still/character_stand_still.gif"));
     player->setPos(scene->width()/2,scene->height()/2);
 
 //    // make player focusable
@@ -56,6 +51,9 @@ Game::Game(QWidget *parent){
        timerHeart->start(random_time_heart);
    }
 
+   gameOver = new GameOver();
+   scene->addItem(gameOver);
+
    // play background music
 
       QMediaPlaylist *playlist = new QMediaPlaylist();
@@ -70,5 +68,7 @@ Game::Game(QWidget *parent){
    // add a view
     QGraphicsView * view = new QGraphicsView(scene);
     view->show();
+
+
 
 }

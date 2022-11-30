@@ -22,7 +22,16 @@ SOURCES += main.cpp \
     Heart.cpp \
     Explosion.cpp \
     BoomManDie.cpp \
-    PlayerVsEnemy.cpp
+    PlayerVsEnemy.cpp \
+    Flash.cpp \
+    FlashLeft.cpp \
+    FlashUp.cpp \
+    FlashDown.cpp \
+    GameOver.cpp \
+    PlayerMoveRight.cpp \
+    PlayerMoveDown.cpp \
+    PlayerMoveLeft.cpp \
+    PlayerMoveTop.cpp
 
 HEADERS  += \
     BoomMan.h \
@@ -34,7 +43,16 @@ HEADERS  += \
     Heart.h \
     Explosion.h \
     BoomManDie.h \
-    PlayerVsEnemy.h
+    PlayerVsEnemy.h \
+    Flash.h \
+    FlashLeft.h \
+    FlashUp.h \
+    FlashDown.h \
+    GameOver.h \
+    PlayerMoveRight.h \
+    PlayerMoveDown.h \
+    PlayerMoveLeft.h \
+    PlayerMoveTop.h
 
 FORMS    +=
 

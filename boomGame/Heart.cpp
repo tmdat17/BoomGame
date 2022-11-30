@@ -5,6 +5,7 @@
 #include <QList>
 #include <QPixmap>
 #include <QTransform>
+#include <math.h>
 
 #include "Heart.h"
 #include "BoomMan.h"
@@ -85,7 +86,7 @@ Heart::Heart(){
         timer->start(30);
 
     }
-    else if(random_move == 2){  
+    else if(random_move == 2){
         connect(timer,SIGNAL(timeout()),this,SLOT(move_from_bottom_left()));
         timer->start(30);
 
@@ -119,17 +120,23 @@ Heart::Heart(){
 
 // move goc trai tren xuong goc phai duoi
 void Heart::move_from_top_left(){
-    setPos(x()+5, y() + 5);
-//    if(pos().x() > 950 || pos().y() > 500){
-//        scene()->removeItem(this);
-//        delete this;
-//        //qDebug("enemy from top left is deleted");
-//    }
+//    setPos(x()+5, y() + 5);
+
+    int random_x = rand() % 10;
+    int random_y = rand() % 10;
+    setPos(x()+random_x, y() + random_y);
+    if(pos().x() > 950 || pos().y() > 500){
+        scene()->removeItem(this);
+        delete this;
+        //qDebug("enemy from top left is deleted");
+    }
 }
 
 // move goc phai tren xuong goc phai duoi
 void Heart::move_from_top_right(){
-    setPos(x()-5, y() + 5);
+    int random_x = rand() % 10;
+    int random_y = rand() % 10;
+    setPos(x()-random_x, y() + random_y);
     if(pos().x()+10 < 0 || pos().y() > 565){
         scene()->removeItem(this);
         delete this;
@@ -139,7 +146,9 @@ void Heart::move_from_top_right(){
 
 // move goc trai duoi len goc phai tren
 void Heart::move_from_bottom_left(){
-    setPos(x()+5, y() - 5);
+    int random_x = rand() % 10;
+    int random_y = rand() % 10;
+    setPos(x()+random_x, y() - random_y);
     if(pos().x() > 995 || pos().y()+5 < 0){
         scene()->removeItem(this);
         delete this;
@@ -149,7 +158,9 @@ void Heart::move_from_bottom_left(){
 
 // move goc phai duoi len goc trai tren
 void Heart::move_from_bottom_right(){
-    setPos(x()-5, y() - 5);
+    int random_x = rand() % 10;
+    int random_y = rand() % 10;
+    setPos(x()-random_x, y() - random_y);
     if(pos().x()+5 < 0 || pos().y()+5 < 0){
         scene()->removeItem(this);
         delete this;
@@ -158,7 +169,9 @@ void Heart::move_from_bottom_right(){
 }
 
 void Heart::move_from_left(){
-    setPos(x()+5, y());
+    int random_x = rand() % 10;
+
+    setPos(x()+random_x, y());
     if(pos().x() > 995){
         scene()->removeItem(this);
         delete this;
@@ -167,7 +180,9 @@ void Heart::move_from_left(){
 }
 
 void Heart::move_from_right(){
-    setPos(x()-5, y());
+    int random_x = rand() % 10;
+
+    setPos(x()-random_x, y());
     if(pos().x() + 5 < 0){
         scene()->removeItem(this);
         delete this;
@@ -176,7 +191,9 @@ void Heart::move_from_right(){
 }
 
 void Heart::move_from_top(){
-    setPos(x(), y()+5);
+
+    int random_y = rand() % 10;
+    setPos(x(), y()+random_y);
     if(pos().y() > 565){
         scene()->removeItem(this);
         delete this;
@@ -185,7 +202,9 @@ void Heart::move_from_top(){
 }
 
 void Heart::move_from_bottom(){
-    setPos(x(), y()-5);
+
+    int random_y = rand() % 10;
+    setPos(x(), y()-random_y);
     if(pos().y() + 5 < 0){
         scene()->removeItem(this);
         delete this;

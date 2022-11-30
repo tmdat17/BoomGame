@@ -9,6 +9,7 @@
 #include <QTimer>
 #include <QMediaPlayer>
 #include <QWidget>
+#include <QGraphicsView>
 
 #include "Heart.h"
 #include "Boom.h"
@@ -17,13 +18,18 @@
 #include "Game.h"
 #include "Boommandie.h"
 #include "PlayerVsEnemy.h"
-
-
+#include "Flash.h"
+#include "FlashLeft.h"
+#include "FlashUp.h"
+#include "FlashDown.h"
+#include "PlayerMoveRight.h"
+#include "PlayerMoveDown.h"
+#include "PlayerMoveLeft.h"
+#include "PlayerMoveTop.h"
 
 extern Game * game; // there is an external global object called game
 
 BoomMan::BoomMan(){
-
     QTimer * timeCollision = new QTimer();
     connect(timeCollision,SIGNAL(timeout()),this,SLOT(collision_boomman()));
     timeCollision->start(10);
@@ -40,43 +46,83 @@ BoomMan::BoomMan(){
 void BoomMan::keyPressEvent(QKeyEvent *event){
 
     if (event->key() == Qt::Key_Left){
-        if(pos().x() > 35)
+        if(pos().x() > 35){
             setPos(x()-35,y());
+            PlayerMoveLeft *moveLeft = new PlayerMoveLeft();
+            moveLeft->setPos(x(), y());
+            scene()->addItem(moveLeft);
+        }
+
     }
     // flash trai
     else if (event->key() == Qt::Key_A){
-        if(pos().x() > 75)
+        if(pos().x() > 75){
             setPos(x()-70,y());
+            FlashLeft *flashLeft = new FlashLeft();
+            flashLeft->setPos(x()+50, y());
+            scene()->addItem(flashLeft);
+        }
+
     }
     else if (event->key() == Qt::Key_Right){
-        if(pos().x() < 915)
+        if(pos().x() < 915){
             setPos(x()+35,y());
+            PlayerMoveRight *moveRight = new PlayerMoveRight();
+            moveRight->setPos(x(), y());
+            scene()->addItem(moveRight);
+        }
+
     }
 
     // flash phai
     else if (event->key() == Qt::Key_D){
-        if(pos().x() < 885)
-            setPos(x()+70,y());
+        if(pos().x() < 885){
+             setPos(x()+70,y());
+             Flash *flash = new Flash();
+             flash->setPos(x()-50, y());
+             scene()->addItem(flash);
+        }
+
     }
 
     else if (event->key() == Qt::Key_Up){
-        if(pos().y() > 35)
+        if(pos().y() > 35){
             setPos(x(),y()-35);
+            PlayerMoveTop *moveTop = new PlayerMoveTop();
+            moveTop->setPos(x(), y());
+            scene()->addItem(moveTop);
+        }
+
     }
     // flash len
     else if (event->key() == Qt::Key_W){
-        if(pos().y() > 70)
+        if(pos().y() > 70){
             setPos(x(),y()-70);
+            FlashUp *flashUp = new FlashUp();
+            flashUp->setPos(x(), y()+50);
+            scene()->addItem(flashUp);
+        }
+
     }
 
     else if (event->key() == Qt::Key_Down){
-        if(pos().y() < 465)
+        if(pos().y() < 465){
             setPos(x(),y()+35);
+            PlayerMoveDown *moveDown = new PlayerMoveDown();
+            moveDown->setPos(x(), y());
+            scene()->addItem(moveDown);
+        }
+
     }
     // flash xuong
     else if (event->key() == Qt::Key_S){
-        if(pos().y() < 395)
+        if(pos().y() < 395){
             setPos(x(),y()+70);
+            FlashDown *flashDown = new FlashDown();
+            flashDown->setPos(x(), y()-50);
+            scene()->addItem(flashDown);
+        }
+
     }
     else if (event->key() == Qt::Key_Space){
         // create a boom
@@ -110,7 +156,6 @@ void BoomMan::collision_boomman(){
         {
 
            if (game->health->getHealth() == 1){
-
                QMediaPlayer * music = new QMediaPlayer();
                game->health->decrease();
                music->setMedia(QUrl("qrc:/sounds/music/challenge_lose.mp3"));

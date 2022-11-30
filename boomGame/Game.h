@@ -10,6 +10,7 @@
 #include <Score.h>
 #include <Health.h>
 #include <Heart.h>
+#include <GameOver.h>
 
 class Game: public QGraphicsView{
 public:
@@ -20,6 +21,7 @@ public:
     Score * score;
     Health * health;
     Heart * heart;
+    GameOver *gameOver;
 };
 
 #endif // GAME_H

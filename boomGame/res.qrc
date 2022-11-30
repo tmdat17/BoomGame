@@ -42,6 +42,44 @@
         <file>dataset/playerVsEnemy/playerEx8.png</file>
         <file>dataset/playerVsEnemy/playerEx9.png</file>
         <file>dataset/playerVsEnemy/playerEx10.png</file>
+        <file>dataset/flash/flash1-noBg.png</file>
+        <file>dataset/flash/flash2-noBg.png</file>
+        <file>dataset/flash/flash3-noBg.png</file>
+        <file>dataset/flash/flash4-noBg.png</file>
+        <file>dataset/flash/flash5-noBg.png</file>
+        <file>dataset/flashLeft/flash1-left.png</file>
+        <file>dataset/flashLeft/flash2-left.png</file>
+        <file>dataset/flashLeft/flash3-left.png</file>
+        <file>dataset/flashLeft/flash4-left.png</file>
+        <file>dataset/flashLeft/flash5-left.png</file>
+        <file>dataset/flashUp/flash1-up.png</file>
+        <file>dataset/flashUp/flash2-up.png</file>
+        <file>dataset/flashUp/flash3-up.png</file>
+        <file>dataset/flashUp/flash4-up.png</file>
+        <file>dataset/flashUp/flash5-up.png</file>
+        <file>dataset/flashDown/flash1-down.png</file>
+        <file>dataset/flashDown/flash2-down.png</file>
+        <file>dataset/flashDown/flash3-down.png</file>
+        <file>dataset/flashDown/flash4-down.png</file>
+        <file>dataset/flashDown/flash5-down.png</file>
+        <file>dataset/gameOver/gameOver.png</file>
+        <file>dataset/gameOver/gameOver1.png</file>
+        <file>dataset/character_move_right/playerMoveRight1.png</file>
+        <file>dataset/character_move_right/playerMoveRight2.png</file>
+        <file>dataset/character_move_right/playerMoveRight3.png</file>
+        <file>dataset/character_move_right/playerMoveRight4.png</file>
+        <file>dataset/character_move_down/playerMoveDown1.png</file>
+        <file>dataset/character_move_down/playerMoveDown2.png</file>
+        <file>dataset/character_move_down/playerMoveDown3.png</file>
+        <file>dataset/character_move_down/playerMoveDown4.png</file>
+        <file>dataset/character_move_left/playerMoveLeft1.png</file>
+        <file>dataset/character_move_left/playerMoveLeft2.png</file>
+        <file>dataset/character_move_left/playerMoveLeft3.png</file>
+        <file>dataset/character_move_left/playerMoveLeft4.png</file>
+        <file>dataset/character_move_top/playerMoveTop1.png</file>
+        <file>dataset/character_move_top/playerMoveTop2.png</file>
+        <file>dataset/character_move_top/playerMoveTop3.png</file>
+        <file>dataset/character_move_top/playerMoveTop4.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>music/explosion.mp3</file>
